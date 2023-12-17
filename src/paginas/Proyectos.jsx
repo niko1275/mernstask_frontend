@@ -3,11 +3,11 @@ import useProyectos from '../hooks/useProyectos'
 import { PreviewProyecto } from '../components/PreviewProyecto';
 import { useParams } from 'react-router-dom';
 import { Alerta } from '../components/Alerta';
-import io from 'socket.io-client';
 
 
 
-let socket;
+
+
 export const Proyectos = () => {
 
   const { proyectos,alerta } = useProyectos();

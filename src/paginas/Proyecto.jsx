@@ -12,10 +12,10 @@ import { Colaborador } from '../components/Colaborador';
 import ModalEliminarColaborador from '../components/ModalEliminarColaborador';
 import useAuth from '../hooks/useAuth';
 import useAdmin from '../hooks/useAdmin';
-import io from 'socket.io-client';
 
 
-let socket;
+
+
 export const Proyecto = () => {
   
   const {obtenerProyecto,proyecto,cargando,handleModalTarea,alerta} = useProyectos();
@@ -29,19 +29,7 @@ export const Proyecto = () => {
     obtenerProyecto(id)
   },[])
 
-  useEffect(()=>{
-    socket = io(import.meta.env.VITE_BACKEND_URL)
-    socket.emit('proyecto',params.id)
-   
-  },[])
 
-  useEffect(()=>{
-    console.log('LLega')
-    socket.on('respuesta',(persona)=>{
-      console.log(persona)
-    })
-  },[])
- 
   return (
  
     cargando ?  <Spinner/>

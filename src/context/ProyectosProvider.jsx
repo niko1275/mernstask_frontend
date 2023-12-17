@@ -1,9 +1,9 @@
 import { createContext, useEffect, useState } from "react";
 import clienteAxios from "../config/clienteAxios";
 import { useNavigate } from "react-router-dom";
-import io from 'socket.io-client';
+
 const ProyectosContext = createContext();
-let socket;
+
 const ProyectosProvider = ({children}) => {
 
     const [proyectos,setProyectos] = useState([]);
@@ -25,16 +25,7 @@ const ProyectosProvider = ({children}) => {
         },5000 );
     }
 
-    useEffect(()=>{
-        socket = io(import.meta.env.VITE_BACKEND_URL)
-        
-    },[])
 
-    useEffect(()=>{
-        socket.on('tarea agregada',(tareaNueva)=>{
-            console.log(tareaNueva)
-        })
-    },[])
 
     useEffect(()=>{
         const obtenerProyectos = async () => {
@@ -270,7 +261,6 @@ const ProyectosProvider = ({children}) => {
                     
                 }, 3000);
 
-                socket.emit('nueva tarea',data);
                
           }catch(error){    
             console.log(error)

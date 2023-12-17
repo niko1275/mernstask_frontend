@@ -17,6 +17,7 @@ const AuthProvider = ({children})=>{
             const token = localStorage.getItem('token');
             console.log("token"+token);
             if(!token){
+                console.log('entra')
                 setCargando(false);
                 return
             }
@@ -29,11 +30,14 @@ const AuthProvider = ({children})=>{
             })
 
             try{
+                console.log('No entra')
                 const {data} = await clienteAxios('/usuarios/perfil',config);
+            
                 setAuth(data);
                 navigate('/proyectos');
             
             }catch(error){
+                console.log(error)
                 setAuth({});
             }
             finally{
