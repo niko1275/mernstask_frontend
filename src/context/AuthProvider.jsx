@@ -7,7 +7,7 @@ const AuthContext = createContext();
 
 const AuthProvider = ({children})=>{
 
-    const [auth,setAuth] = useState({});
+    const [auth,setAuth] = useState(null);
     const [cargando,setCargando] = useState(true);
     const navigate = useNavigate();
     
@@ -30,11 +30,12 @@ const AuthProvider = ({children})=>{
             })
 
             try{
-                console.log('No entra')
+                
                 const {data} = await clienteAxios('/usuarios/perfil',config);
-            
+                
                 setAuth(data);
                 navigate('/proyectos');
+               
             
             }catch(error){
                 console.log(error)

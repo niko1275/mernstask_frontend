@@ -26,13 +26,14 @@ export const Login = () => {
         try{
             const {data} = await clienteAxios.post('/usuarios/login',{email,password});
             localStorage.setItem('token',data.token);
-            console.log('data es')
+            
            
             setAuth(data);
+            console.log(data)
             setAlerta({});
-            console.log("Antes de redirigir");
-            navigate('/proyectos');
-            window.location.reload();
+         
+            navigate('/proyectos')
+            
         }catch(error){
             setAlerta({
                 msg:error.response.data.msg,

@@ -14,6 +14,7 @@ export const Proyectos = () => {
   const {msg} = alerta;
 
 
+
   return (
     <>
       <h1 className='text-4xl font-bold'>Proyectos</h1>
@@ -24,7 +25,7 @@ export const Proyectos = () => {
         {proyectos.length ? proyectos.map(proyecto => (
           <PreviewProyecto key={proyecto._id}
           proyecto={proyecto}/>
-        )): <p className='text-center text-gray-600 uppercase'>No hay proyectos</p>}
+        )): <p className='text-center text-gray-600 uppercase font-bold p-10 text-xl'>No hay proyectos</p>}
       </div>
     </>
   )

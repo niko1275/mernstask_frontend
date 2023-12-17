@@ -1,6 +1,7 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useEffect, useLayoutEffect, useState } from "react";
 import clienteAxios from "../config/clienteAxios";
 import { useNavigate } from "react-router-dom";
+import useAuth from "../hooks/useAuth";
 
 const ProyectosContext = createContext();
 
@@ -17,17 +18,12 @@ const ProyectosProvider = ({children}) => {
     const [modalEliminarColaborador,setModalEliminarColaborador] = useState(false);
     const [buscador,setBuscador] = useState(false);
     const navigate= useNavigate();
-
-    const mostrarAlerta = alerta => {
-        setAlerta(alerta);
-        setTimeout(() => {
-            setAlerta({});
-        },5000 );
-    }
-
+    const {auth} = useAuth();
+   
 
 
     useEffect(()=>{
+        
         const obtenerProyectos = async () => {
             try {
                 const token = localStorage.getItem('token');
@@ -38,6 +34,7 @@ const ProyectosProvider = ({children}) => {
                       }
                 }
                 const {data} = await clienteAxios('/proyectos',config);
+                console.log(data)
                 setProyectos(data);
                 
             }catch(error){
@@ -46,7 +43,18 @@ const ProyectosProvider = ({children}) => {
         
         }
         obtenerProyectos();
-    },[])
+    },[auth])
+
+
+
+    const mostrarAlerta = alerta => {
+        setAlerta(alerta);
+        setTimeout(() => {
+            setAlerta({});
+        },5000 );
+    }
+
+
 
  
     const submitProyecto = async proyectos => {
@@ -468,7 +476,8 @@ const ProyectosProvider = ({children}) => {
             completarTarea,
             handleBuscador,
             buscador,
-            cerrarSesionProyectos
+            cerrarSesionProyectos,
+            
         }}>
             {children}
         </ProyectosContext.Provider>
