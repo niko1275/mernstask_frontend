@@ -1,1 +1,7 @@
-{ "routes": [{ "src": "/[^.]+", "dest": "/", "status": 200 }] }
+{
+    "routes": [
+      { "handle": "filesystem" },
+      { "src": "/usuarios/confirmar/:id", "dest": "/usuarios/confirmar" },
+      { "src": "/[^.]+", "dest": "/", "status": 200 }
+    ]
+  }

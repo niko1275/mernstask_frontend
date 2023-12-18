@@ -18,7 +18,7 @@ export const ConfirmarCuenta = () => {
       try{
         const url = `/usuarios/confirmar/${id}`;
         const {data} = await clienteAxios(url);
-        console.log("se llamo 1"+data);
+        console.log(data);
         setAlerta({
           msg:data.msg,
           error:false
@@ -31,7 +31,7 @@ export const ConfirmarCuenta = () => {
           error:true
 
         })
-
+        console.log(error)
 
       }
     }
