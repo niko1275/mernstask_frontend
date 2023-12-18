@@ -1,7 +1,7 @@
 {
     "routes": [
       { "handle": "filesystem" },
-      { "src": "/usuarios/confirmar/:id", "dest": "/usuarios/confirmar" },
+      { "src": "/confirmar/:id", "dest": "/index.html" },
       { "src": "/[^.]+", "dest": "/", "status": 200 }
     ]
   }
