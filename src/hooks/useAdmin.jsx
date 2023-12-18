@@ -7,7 +7,7 @@ const useAdmin= () =>{
     const{proyecto} = useProyectos();
     const{auth} = useAuth();
     
-    return proyecto.creador === auth?.usuario?._id || auth._id
+    return proyecto.creador === (auth?.usuario?._id || auth?._id)
 }
 
 export default useAdmin

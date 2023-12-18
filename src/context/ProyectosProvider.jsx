@@ -83,8 +83,7 @@ const ProyectosProvider = ({children}) => {
             const {data} = await clienteAxios(`/proyectos/${id}`,config);
            
             setProyecto(data);
-            console.log('LLegA??')
-            navigate(`/proyectos/${id}`)
+         
         }catch(error){
             
             console.log(error);

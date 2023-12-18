@@ -4,12 +4,7 @@ import useAuth from '../hooks/useAuth';
 
 export const PreviewProyecto = ({proyecto}) => {
   const {auth} = useAuth();
-  console.log(auth)
   const {nombre,_id,cliente,creador} = proyecto;
-
-  if(!auth){
-    return <div>cargando...</div>
-  }
    
   return (
     <div className='border-b p-5 flex justify-between'>
@@ -17,8 +12,8 @@ export const PreviewProyecto = ({proyecto}) => {
       <div className='flex items-center '>
         <p className=''>{nombre}  <span className='text-gray-500 uppercase'> {''} {cliente}</span></p>
         {
-          (auth?.usuario?._id || auth._id) !== creador && (
-            <p className='mx-2 bg-green-500 rounded-lg p-1 font-bold text-white'>Colaborador</p>
+         ( auth?.usuario?._id || auth?._id) !== creador && (
+            <p className=' mx-2 bg-green-500 rounded-lg p-1 font-bold text-white'>Colaborador</p>
           )
         }
 

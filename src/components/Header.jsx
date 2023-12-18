@@ -23,8 +23,10 @@ export const Header = () => {
             
             <div className='flex items-center gap-4 flex-col md:flex-row'> 
 
-                <button onClick={handleBuscador} type='button' className='font-bold rounded uppercase'>Buscar proyecto</button>
-                <Link to='/proyectos' className='font-bold uppercase'> 
+            <button onClick={handleBuscador} type='button' className='font-bold rounded uppercase mt-4 sm:mt-0'>
+            Buscar proyecto
+            </button>
+                <Link to='/proyectos' className='font-bold uppercase '> 
                     Proyectos
                 </Link>
 
