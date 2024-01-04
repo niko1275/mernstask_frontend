@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import useAuth from '../hooks/useAuth'
 import useProyectos from '../hooks/useProyectos';
-
+import { motion, useAnimation } from 'framer-motion';
 
 export const Sidebar = () => {
 
@@ -10,16 +10,27 @@ export const Sidebar = () => {
 
   const{handleBuscador,cerrarSesionProyectos}=useProyectos();
   const {cerrarSesionAuth} = useAuth();
-
+  const [sidebarVisible, setSidebarVisible] = useState(false);
   const handleCerrarSesion = ( )=>{
       cerrarSesionAuth();
       cerrarSesionProyectos();
       localStorage.removeItem('token');
   }
-
+  const controls = useAnimation();
+  const handleToggleSidebar = () => {
+    setSidebarVisible(!sidebarVisible);
+  };
   return (
-    <aside className='  text-white rounded-lg w-[250px]    min-h-screen hidden xl:flex pr-5 pl-10 py-10'>
-      <div className='w-full h-full border rounded-xl flex flex-col items-center justify-between bg-[#212121] border-neutral-700 border-2 shadow-2xl'>
+
+    <>
+   
+   <motion.aside
+    className={`text-white rounded-lg w-[300px] max-xl:hidden flex min-h-screen pr-5 pl-10 py-10 `}
+    initial={{ translateX: sidebarVisible ? 0 : 400 }}
+    animate={{ translateX: sidebarVisible ? 0 : 400 }}
+    transition={{ duration: 0.3, ease: 'easeInOut' }}
+  >
+      <div className='w-full h-full border rounded-xl flex flex-col items-center justify-between bg-[#212121] border-neutral-700 border-2 shadow-2xl  '>
         <div className='mt-10'>
          
           <p className='text-xl font-bold  '>
@@ -59,6 +70,19 @@ export const Sidebar = () => {
           </button>
         </div>
       </div>
-    </aside>
+      
+      </motion.aside>
+
+    <button
+        onClick={handleToggleSidebar}
+        className={` fixed top-5 left-5 text-white`}
+      >
+        
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-6 h-6">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+     
+      </button>
+    </>
   );
   }

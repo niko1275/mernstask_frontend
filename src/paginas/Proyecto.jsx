@@ -34,7 +34,7 @@ export const Proyecto = () => {
 
     cargando ? <Spinner />
       : <>
-        <div className='  pr-10 pl-5 py-10 min-h-screen flex'>
+        <div className='  pr-10 pl-5 py-10 min-h-screen flex w-full'>
           <div className=' bg-[#212121] border w-full p-10 rounded-xl  border-neutral-700 border-2  '>
           <div className='flex justify-between '>
             <h1 className='text-2xl font-bold text-white '>{nombre}</h1>

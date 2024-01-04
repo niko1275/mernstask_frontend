@@ -31,7 +31,7 @@ export const Proyectos = () => {
               </div>
             ))
           ) : (
-            <p className='text-center text-gray-600 uppercase font-bold p-10 text-xl'>
+            <p className='text-center text-gray-600 uppercase font-bold p-10 text-xl text-white'>
               No hay proyectos
             </p>
           )}

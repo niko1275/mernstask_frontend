@@ -16,7 +16,7 @@ export const RutaProtegida = () => {
         <div className='bg-[#1A1A1A] min-h-screen w-full '>
           <div className='flex '>
             <Sidebar />
-            <main className=' flex-1 '>
+            <main className=' flex-1 w-full'>
               <Outlet />
             </main>
           </div>
