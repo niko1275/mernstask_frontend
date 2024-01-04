@@ -7,20 +7,25 @@ export const PreviewProyecto = ({proyecto}) => {
   const {nombre,_id,cliente,creador} = proyecto;
    
   return (
-    <div className='border-b p-5 flex justify-between'>
-
-      <div className='flex items-center '>
-        <p className=''>{nombre}  <span className='text-gray-500 uppercase'> {''} {cliente}</span></p>
-        {
-         ( auth?.usuario?._id || auth?._id) !== creador && (
-            <p className=' mx-2 bg-green-500 rounded-lg p-1 font-bold text-white'>Colaborador</p>
-          )
-        }
-
-      </div>
-        {/* <p className='flex-1'>{nombre}  <span className='text-gray-500 uppercase'> {''} {cliente}</span></p> */}
-    
-        <Link to={`${_id}`} className='font-bold '>Ver Proyecto</Link>
-    </div>
+    <>
+        <div>
+          <p className='text-xl font-semibold text-white mt-2 '>{nombre}</p>
+          <span className='text-gray-500 uppercase  text-white'>{cliente}</span>
+        </div>
+       
+        <div className='flex justify-between mt-5'>
+          <Link
+            to={`${_id}`}
+            className='text-blue-500 hover:underline font-bold '
+          >
+            Ver Proyecto
+          </Link>
+      
+          {auth?.usuario?._id !== creador && auth?._id !== creador && (
+            <p className='ml-2 bg-green-500 rounded-lg p-1 font-bold text-white'>Colaborador</p>
+          )}
+        </div>
+        
+    </>
   )
 }

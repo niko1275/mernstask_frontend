@@ -1,4 +1,4 @@
-import {BrowserRouter,Routes,Route} from 'react-router-dom';
+import {BrowserRouter,Routes,Route, HashRouter} from 'react-router-dom';
 import { AuthLayout } from './layouts/AuthLayout';
 import { Login } from './paginas/Login';
 import { Registrar } from './paginas/Registrar';

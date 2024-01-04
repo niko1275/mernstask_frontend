@@ -13,11 +13,10 @@ export const RutaProtegida = () => {
   return (
     <>
       {auth?._id || auth?.usuario ?
-        <div className='bg-gray-100'>
-          <Header />
-          <div className='md:flex md:min-h-screen'>
+        <div className='bg-[#1A1A1A] min-h-screen w-full '>
+          <div className='flex '>
             <Sidebar />
-            <main className='flex-1 p-10'>
+            <main className=' flex-1 '>
               <Outlet />
             </main>
           </div>

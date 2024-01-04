@@ -18,31 +18,34 @@ export const NuevoColaborador = () => {
     
     
     <>
-       
-        <h1 className='font-black text-4xl '>
-            Añadir colaborador al proyecto: {proyecto.nombre}
-        </h1>
+       <div className='w-full  h-full p-10'>
+            <div className='bg-neutral-700 border-neutral-700 border-2 h-full rounded-xl border '>
+                <h1 className='font-black text-4xl text-white m-10 '>
+                    Añadir colaborador al proyecto: {proyecto.nombre}
+                </h1>
 
-        <div className='mt-10 flex justify-center'>
-            <FormularioColaborador/>
-        </div>
-
-        {
-            cargando ? <p className='text-center'><Spinner/> </p> : colaborador?._id && (
-                <div className='flex justify-center mt-10'>
-                    <div className='bg-white py-10 px-5 md:w-1/2 rounded-lg shadow w-full'>
-                        <h2 className='text-center text-2xl font-bold'>
-                            Resultado
-                            <div className='flex justify-between items-center'>
-                                <p>{colaborador.nombre}</p>
-
-                                <button onClick={()=>agregarColaborador(colaborador.email)} type='button' className='bg-sky-600 font-bold text-white p-3 rounded-lg text-sm'>Agregar al proyecto</button>
-                            </div>
-                        </h2>
-                    </div>
+                <div className='flex justify-center'>
+                    <FormularioColaborador/>
                 </div>
-            )
-        }
+
+                {
+                    cargando ? <p className='text-center'><Spinner/> </p> : colaborador?._id && (
+                        <div className='flex justify-center mt-10'>
+                            <div className='bg-white py-10 px-5 md:w-1/2 rounded-lg shadow w-full'>
+                                <h2 className='text-center text-2xl font-bold'>
+                                    Resultado
+                                    <div className='flex justify-between items-center'>
+                                        <p>{colaborador.nombre}</p>
+
+                                        <button onClick={()=>agregarColaborador(colaborador.email)} type='button' className='bg-sky-600 font-bold text-white p-3 rounded-lg text-sm'>Agregar al proyecto</button>
+                                    </div>
+                                </h2>
+                            </div>
+                        </div>
+                    )
+                }
+            </div>
+        </div>
     </>
   )
 }
