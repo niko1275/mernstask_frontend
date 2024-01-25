@@ -38,8 +38,8 @@ export const Sidebar = () => {
    
    <motion.aside
     className={`text-white rounded-lg w-[300px] max-xl:fixed max-xl:h-full  flex  pr-5 pl-10 py-10 `}
-    initial={{ translateX: sidebarVisible ? 200 : 100 }}
-    animate={{ translateX: sidebarVisible ? 200 :100 }}
+    initial={{ translateX: sidebarVisible ? -400 : 0 }}
+    animate={{ translateX: sidebarVisible ? -400 :0 }}
     transition={{ duration: 0.3, ease: 'easeInOut' }}
   >
       <div className='w-full h-full rounded-xl flex flex-col items-center justify-between bg-[#212121] border-neutral-700 border-2 shadow-2xl  '>
